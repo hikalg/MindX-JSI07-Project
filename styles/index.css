@@ -1,6 +1,8 @@
 body {
     padding: 0;
     margin: 0;
+    min-height: 100vh;
+
 }
 
 .header-container {
@@ -10,7 +12,8 @@ body {
 img.header-item-1 {
     display: inline;
     width: 100% ;
-    height: 600px
+    height: 600px;
+    border-style: solid;
 }
 
 div#headertext {
@@ -49,13 +52,13 @@ p#smallercaption {
 
 div.topbar {
     z-index: 70;
-    background-color: black;
+    background-color: white;
     overflow: hidden;
     height: 50px
 }
 
 p.nextsale {
-    color: white;
+    color: black;
     text-indent: 20px;
     line-height: 50px;
 }
@@ -87,5 +90,122 @@ div.le-header > h4 {
     margin-left: 50px;
     font-size: 20px;
     font-weight: 50;
+}
+
+li.le-product {
+    width: 30%;
+    padding: 0 10px;
+    border: 1.5px solid #c1c1c1;
+}
+
+li.le-product > .img-wrapper {
+  position: absolute
+}   
+
+li.le-product > .img-wrapper > span {
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 5px;
+    border-radius: 3px;
+    display: block;
+    width: fit-content;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+li.le-product > .img-wrapper > img {
+    width: 100%;
+    /* Tạo hiệu ứng chuyển đổi diễn ra trong 0.3s với vận tốc đều nhau (mờ dần đều, hiện dần đều) */
+    transition: all 0.3s linear;
+}
+
+li.le-product > .img-wrapper > img.img-second {
+    /* Ẩn 1 element có position absolute */
+    opacity: 0;
+    visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+li.le-product:hover > .img-wrapper > img.img-second {
+    opacity: 1;
+    visibility: visible;
+}
+
+li.le-product > .img-wrapper > a {
+    display: block;
+    position: absolute;
+    /* Biến hình vuông thành hình tròn */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Căn 1 element absolute vào chính giữa */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    transition: all 0.4s linear;
+
+    background-color: #ffffff;
+}
+
+li.le-product:hover > .img-wrapper > a {
+    width: 40px;
+    height: 40px;
+}
+
+li.le-product > .img-wrapper > a > svg {
+    width: 0;
+    height: 0;
+    transition: all 0.4s linear;
+}
+
+li.le-product:hover > .img-wrapper > a > svg {
+    width: 20px;
+    height: 20px;
+}
+
+.info-wrapper span.manufacturer {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 14px;
+}
+
+.info-wrapper > h2 {
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-size: 2em;
+}
+
+.info-wrapper > span.price {
+    display: block;
+    margin-top: 5px;
+    font-size: 22px;
+
+}
+
+.info-wrapper > div.rating {
+    margin: 10px 0;
+    width: calc(24px * 3.5);
+    height: 24px;
+    background-image: url(https://img.icons8.com/fluency/24/7950F2/star.png);
+}
+
+ul#le-products {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
 
