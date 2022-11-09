@@ -17,9 +17,74 @@ h6 {
 ul {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 /* Header */
+header {
+    padding: 25px 0;
+}
+
+header > nav > ul {
+    list-style: none;
+    gap: 25px;
+}
+
+header .menu-link {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #eaeaea;
+    margin-top: 40px;
+    padding: 40px 0;
+}
+
+footer .slogan {
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+footer .socials {
+    margin-top: 20px;
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+footer .socials img {
+    width: 30px;
+    height: 30px;
+}
+
+footer h4 {
+    text-transform: uppercase;
+}
+
+footer .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #eaeaea;
+    margin: 10px 0 20px;
+}
+
+#footer-link a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+}
+
+#footer-letter input {
+    outline: none;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid #eaeaea;
+    color: #555555;
+}
 
 .le-container {
     margin-top: 50px;
