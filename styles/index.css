@@ -268,6 +268,7 @@ ul#le-products {
 
 .featured-wrapper > ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -290,4 +291,25 @@ ul#le-products {
 
 .featured-wrapper .name {
     display: block;
+}
+
+.featured-wrapper > h4 {
+    margin-bottom: 15px;
+    font-weight: 50;
+}
+
+.fs-wrapper {
+    margin-top: 50px;
+}
+
+.fs-wrapper > h4 {
+    margin-bottom: 20px;
+    font-weight: 50;
+}
+
+li.fs {
+    width: calc((100% - 80px) / 5);
+    padding: 10px 10px;
+    border: 1px solid #e4dddd95;
+    border-radius: 5px;
 }
