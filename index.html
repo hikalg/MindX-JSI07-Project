@@ -1,100 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nam</title>
 
-    <title>Nam</title>
+        <link
+            rel="shortcut icon"
+            href="https://img.icons8.com/color/48/null/christmas-tree.png"
+            type="image/png"
+        />
 
-    <link rel="shortcut icon" href="https://img.icons8.com/color/48/null/christmas-tree.png" type="image/png" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles/index.css" />
+    </head>
 
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="styles/index.css" />
-</head>
+    <body>
+        <header class="d-flex align-items-center justify-content-between">
+            <img
+                class="logo"
+                src="http://safiratoy.demo2.towerthemes.com/image/catalog/logo/safira.png"
+                alt=""
+            />
+            <nav class="menu">
+                <ul class="d-flex align-items-center">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-<body>
-    <header class="d-flex align-items-center justify-content-between">
-        <img class="logo" src="http://safiratoy.demo2.towerthemes.com/image/catalog/logo/safira.png" alt="">
-        <nav class="menu">
-            <ul class="d-flex align-items-center">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="topbar">
-        <p class="nextsale">
-            ASUS ROG Airdrop IN PROGRESS | Apple Airdrop in 5 MINUTES
-        </p>
-    </div>
-    <div class="header-container">
-        <div id="headertext">
-            Welcome to the Santa Store
-            <br />
-            <p class="headercaption">
-                Get the best Christmas items, at the cheapest prices.
+        <div class="topbar">
+            <p class="nextsale">
+                ASUS ROG Airdrop IN PROGRESS | Apple Airdrop in 5 MINUTES
             </p>
-            <p id="smallercaption">
-                Christmas Limited Editions | Flash Sales | Giveaways |
-                Vouchers and Coupons
-            </p>
-            <button type="button" class="btn btn-outline-light btn-lg">
-                Shop Now
-            </button>
         </div>
-
-        <img class="header-item-1" src="materials/images/christmas-header.jpg" alt="" />
-
-        <div class="noticebar">iPHONE 14 PRO MAX GIVEAWAY</div>
-
-        <div class="container le-container">
-            <div class="le-header">
-                <h3>Christmas Limited Editions</h3>
-                <h4>
-                    The best products in existence, now made to suit your
-                    Christmas spirit.
-                </h4>
+        <div class="header-container">
+            <div id="headertext">
+                Welcome to the Santa Store
+                <br />
+                <p class="headercaption">
+                    Get the best Christmas items, at the cheapest prices.
+                </p>
+                <p id="smallercaption">
+                    Christmas Limited Editions | Flash Sales | Giveaways |
+                    Vouchers and Coupons
+                </p>
+                <button type="button" class="btn btn-outline-light btn-lg">
+                    Shop Now
+                </button>
             </div>
 
-            <ul id="le-products">
-                <script src="scripts/le_products.js"></script>
-            </ul>
+            <img
+                class="header-item-1"
+                src="materials/images/christmas-header.jpg"
+                alt=""
+            />
 
-            <div class="featured">
-                <div class="featured-wrapper">
-                    <h3>Featured</h3>
-                    <h4>
-                        The picks from the staff at the Santa Store.
-                    </h4>
-                    <ul>
-                        <script src="scripts/featured_products.js"></script>
-                    </ul>
-                </div>
-            </div>
+            <div class="noticebar">iPHONE 14 PRO MAX GIVEAWAY</div>
 
-            <div class="fs">
-                <div class="fs-wrapper">
-                    <h3>Flash Sales</h3>
+            <div class="container le-container">
+                <div class="le-header">
+                    <h3>Christmas Limited Editions</h3>
                     <h4>
-                        Impossible sales at impossible prices.
+                        The best products in existence, now made to suit your
+                        Christmas spirit.
                     </h4>
-                    <ul>
-                        <script src="scripts/fs_products.js"></script>
-                    </ul>
                 </div>
+
+                <ul id="le-products">
+                    <script src="scripts/le_products.js"></script>
+                </ul>
+
+                <div class="featured">
+                    <div class="featured-wrapper">
+                        <h3>Featured</h3>
+                        <h4>The picks from the staff at the Santa Store.</h4>
+                        <ul>
+                            <script src="scripts/featured_products.js"></script>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="le-header fs-header">
+                    <h3 >Flash Sales</h3>
+                    <h4>Impossible sales at impossible prices.</h4>
+                </div>
+
+                <ul id="fs-products">
+                    <script src="scripts/fs_products.js"></script>
+                </ul>
+
             </div>
         </div>
-    </div>
-    <div id="middle3"></div>
+        <div id="middle3"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

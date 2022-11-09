@@ -220,7 +220,8 @@ li.le-product:hover > .img-wrapper > a > svg {
     background-image: url(https://img.icons8.com/fluency/24/7950F2/star.png);
 }
 
-ul#le-products {
+ul#le-products,
+ul#fs-products {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -301,18 +302,6 @@ ul#le-products {
     font-weight: 50;
 }
 
-.fs-wrapper {
+.fs-header {
     margin-top: 50px;
-}
-
-.fs-wrapper > h4 {
-    margin-bottom: 20px;
-    font-weight: 50;
-}
-
-li.fs {
-    width: calc((100% - 80px) / 5);
-    padding: 10px 10px;
-    border: 1px solid #e4dddd95;
-    border-radius: 5px;
 }
