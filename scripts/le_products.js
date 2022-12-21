@@ -61,7 +61,7 @@ const le_product_4 = {
 
 const le_products = [le_product_0, le_product_1, le_product_2, le_product_3, le_product_4]
 
-function generateHTML(le_product) {
+function generateHTML(le_product, index) {
     return `
     <li class="le-product">
     <div class="img-wrapper">
@@ -70,7 +70,7 @@ function generateHTML(le_product) {
       <img src="${le_product.img2}" alt="ProductAlt" class="img-second" />
       <div class="info">
         <span class="brand">${le_product.brand}</span>
-        <h2 class="name">${le_product.name}</h2>
+        <a href="/pages/product-detail.html?id=${index}"><h2 class="name">${le_product.name}</h2></a>
         <span class="availability">${le_product.availability}</span>
         <span class="price">${le_product.price}</span>
       </div>
@@ -80,8 +80,8 @@ function generateHTML(le_product) {
 }
 
 function render() {
-    le_products.forEach(function (le_product) {
-        const html = generateHTML(le_product);
+    le_products.forEach(function (le_product, index) {
+        const html = generateHTML(le_product, index);
         const productsList = document.querySelector("ul#le-products");
         productsList.insertAdjacentHTML(
             "beforeend", html
