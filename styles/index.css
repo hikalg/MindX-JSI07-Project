@@ -295,6 +295,7 @@ ul#fs-products {
     width: 100%;
     margin-top: 40px;
     list-style: none;
+    margin-top
 }
 
 .info {
@@ -318,7 +319,7 @@ ul#fs-products {
 }
 
 .featured {
-    background-image: url(https://img.freepik.com/free-photo/nice-christmas-background-white-background-with-copy-space_24972-1722.jpg?w=2000);
+    background-image: url(http://wallpaperset.com/w/full/8/3/6/94194.jpg);
     margin-top: 60px;
     display: flex;
     justify-content: flex-end;
