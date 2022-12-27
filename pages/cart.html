@@ -38,38 +38,7 @@
 
     <div class="container">
         <div class="row align-items-center">
-            <div id="content" class="col-lg-6">
-                <img id="thumb" class="w-100" src="https://cdn.hoanghamobile.com/i/preview/Uploads/2022/09/08/44444.png"
-                    title="iMac 4K 21.5-inch" alt="iMac 4K 21.5-inch">
-            </div>
-            <div class="col-lg-6 product-info-details" style="height: fit-content;">
-                <div class="name col-12">
-                    <h1 id="title" class="text-uppercase">Iphone 14 promax</h1>
-                </div>
-                <div class="col-12">
-                    <p class="price">
-                        <span class="price-new">$86.00</span>
-                        <span class="price-old">$110.00</span>
-                    </p>
-                    <p class="text-countdown">
-                        <span>Hurry up!</span> Offer ends in: 1 day
-                    </p>
-                    <ul class="list-unstyled">
-                        <li>Brand: <strong id="brand"></strong></li>
-                        <li>Product Code: <span>Product</span></li>
-                        <li>Availability: <span>In Stock</span></li>
-                    </ul>
-                    <div class="form-group">
-                        <label class="control-label" for="input-quantity">Qty</label>
-                        <input type="number" name="quantity" value="1" min="1" id="input-quantity"
-                            class="form-control" />
-                        <button type="button" id="button-cart" data-loading-text="Loading..."
-                            class="btn btn-primary btn-lg btn-block">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <div id="cart" class="d-flex flex-column gap-5"></div>
         </div>
 
         <footer>
@@ -126,32 +95,53 @@
         <script src="./../scripts/index.js"></script>
         <script src="./../scripts/products.js"></script>
         <script>
-            const params = new Proxy(
-                new URLSearchParams(window.location.search),
-                {
-                    get: (searchParams, prop) => searchParams.get(prop),
-                },
-            );
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length > 0) {
+                document.getElementById("cart").insertAdjacentHTML(
+                    "beforeend",
+                    cart.map((item) => {
+                        return `
+                            <div class="col-12 d-flex align-items-center justify-content-between">
+                                <img src="${products[item.id].img1}" style="max-height: 100px">
+                                <h4>${products[item.id].name}</h4>
+                                <h4 class="fw-semibold">${item.quantity} x $${products[item.id].price} = $${products[item.id].price * item.quantity}</h4>
+                            </div>
+                        `;
+                    }).join("")
+                );
 
-            const id = params.id;
+                document.querySelector("#cart").insertAdjacentHTML(
+                    "beforeend",
+                    `
+                        <div class="col-12 d-flex align-items-center justify-content-end">
+                            <h4 class="fw-semibold">Total: $${cart.reduce((total, item) => {
+                        return total + products[item.id].price * item.quantity;
+                    }, 0)}</h4>
+                        </div>
+                    `
+                );
 
-            console.log(products[id]);
-            document.getElementById("title").textContent = products[id].name;
-            document.getElementById("brand").textContent = products[id].brand;
-            document.getElementById("thumb").src = products[id].img1;
-            document.querySelector(".price-new").textContent = `$${products[id].price}`;
-            document.querySelector(".price-old").textContent = `$${products[id].price * 175 / 100}`;
+                document.querySelector("#cart").insertAdjacentHTML(
+                    "beforeend",
+                    `
+                        <div class="col-12 d-flex align-items-center justify-content-end">
+                            <button id="checkout" class="btn btn-primary">Checkout</button>
+                        </div>
+                    `
+                );
 
-            document.querySelector("#button-cart").addEventListener("click", function () {
-                const quantity = document.querySelector("#input-quantity").value;
-                const cart = JSON.parse(localStorage.getItem("cart")) || [];
-                cart.push({
-                    id: id,
-                    quantity: quantity,
+                document.querySelector("#checkout").addEventListener("click", () => {
+                    localStorage.removeItem("cart");
+                    alert("Checkout successfully");
+                    window.location.reload();
                 });
-                localStorage.setItem("cart", JSON.stringify(cart));
-                alert("Added to cart");
-            })
+            } else {
+                document.getElementById("cart").innerHTML = `
+                    <div class="col-12">
+                        <h1 class="text-center">Your cart is empty</h1>
+                    </div>
+                `;
+            }
         </script>
 </body>
 

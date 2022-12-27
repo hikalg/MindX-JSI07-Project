@@ -1,112 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Facebook-Login or Sign up</title>
-        <link rel="stylesheet" href="./../styles/pages/login.css" />
-    </head>
-    <body>
-        <main>
-            <div class="row">
-                <div class="colm-logo">
-                    <a class="back-to-home" href="/index.html">
-                        <h1>Santa Store 2022</h1>
-                    </a>
-                    <h2>Buy from Santa Store, for the best deals.</h2>
-                </div>
-                <div class="colm-form">
-                    <div class="google-btn" id="google">
-                        <div class="google-icon-wrapper">
-                            <img
-                                class="google-icon"
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                            />
-                        </div>
-                        <p class="btn-text">
-                            <b>Sign in with Google</b>
-                        </p>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook-Login or Sign up</title>
+    <link rel="stylesheet" href="./../styles/pages/login.css" />
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="colm-logo">
+                <a class="back-to-home" href="/index.html">
+                    <h1>Santa Store 2022</h1>
+                </a>
+                <h2>Buy from Santa Store, for the best deals.</h2>
+            </div>
+            <div class="colm-form">
+                <div class="google-btn" id="google">
+                    <div class="google-icon-wrapper">
+                        <img class="google-icon"
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
                     </div>
+                    <p class="btn-text">
+                        <b>Sign in with Google</b>
+                    </p>
                 </div>
             </div>
-        </main>
-        <footer>
-            <div class="footer-contents">
-                <small>Santa Store © 2022</small>
-            </div>
-        </footer>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contents">
+            <small>Santa Store © 2022</small>
+        </div>
+    </footer>
 
-        <script type="module">
-            // Import the functions you need from the SDKs you need
+    <script type="module">
+        // Import the functions you need from the SDKs you need
 
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-            import {
-                getAuth,
-                GoogleAuthProvider,
-                signInWithPopup,
-            } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-            // TODO: Add SDKs for Firebase products that you want to use
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import {
+            getAuth,
+            GoogleAuthProvider,
+            signInWithPopup,
+        } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
 
-            // https://firebase.google.com/docs/web/setup#available-libraries
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-            // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
 
-            const firebaseConfig = {
-                apiKey: "AIzaSyDIRtPLie91VyPyu88FtUCzOK8hFs04n7c",
+        const firebaseConfig = {
+            apiKey: "AIzaSyDIRtPLie91VyPyu88FtUCzOK8hFs04n7c",
+            authDomain: "santa22.firebaseapp.com",
+            projectId: "santa22",
+            storageBucket: "santa22.appspot.com",
+            messagingSenderId: "705277850814",
+            appId: "1:705277850814:web:44c2619f2ee56ed8a41aef",
+        };
 
-                authDomain: "santa22.firebaseapp.com",
+        // Initialize Firebase
 
-                projectId: "santa22",
+        const app = initializeApp(firebaseConfig);
 
-                storageBucket: "santa22.appspot.com",
+        // Initialize Firebase Authentication and get a reference to the service
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+        const google = document.getElementById("google");
+        google.onclick = function () {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const credential =
+                        GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    // The signed-in user info.
+                    const user = result.user;
+                    // ...
+                    window.localStorage.setItem(
+                        "user",
+                        JSON.stringify(user),
+                    );
 
-                messagingSenderId: "705277850814",
+                    window.location.href = "/index.html";
+                })
+                .catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential =
+                        GoogleAuthProvider.credentialFromError(error);
+                    // ...
+                });
+        };
+    </script>
+</body>
 
-                appId: "1:705277850814:web:44c2619f2ee56ed8a41aef",
-            };
-
-            // Initialize Firebase
-
-            const app = initializeApp(firebaseConfig);
-
-            // Initialize Firebase Authentication and get a reference to the service
-            const auth = getAuth(app);
-
-            const provider = new GoogleAuthProvider();
-
-            const google = document.getElementById("google");
-
-            google.onclick = function () {
-                signInWithPopup(auth, provider)
-                    .then((result) => {
-                        // This gives you a Google Access Token. You can use it to access the Google API.
-                        const credential =
-                            GoogleAuthProvider.credentialFromResult(result);
-                        const token = credential.accessToken;
-                        // The signed-in user info.
-                        const user = result.user;
-                        // ...
-                        window.localStorage.setItem(
-                            "user",
-                            JSON.stringify(user),
-                        );
-                        console.log(user);
-                    })
-                    .catch((error) => {
-                        // Handle Errors here.
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        // The email of the user's account used.
-                        const email = error.customData.email;
-                        // The AuthCredential type that was used.
-                        const credential =
-                            GoogleAuthProvider.credentialFromError(error);
-                        // ...
-                    });
-            };
-
-            console.log(google);
-        </script>
-    </body>
 </html>

@@ -91,6 +91,10 @@ footer .divider {
     color: #555555;
 }
 
+.text-justify {
+    text-align: justify;
+}
+
 .le-container {
     margin-top: 50px;
 }
@@ -110,7 +114,7 @@ div#headertext {
     position: absolute;
     color: white;
     text-align: center;
-    font-size: 70px;
+    font-size: 50px;
     font-style: bold;
     font-weight: 500;
     text-shadow: 10px;
@@ -123,11 +127,11 @@ div#headertext {
 
 .header-item-1 {
     -webkit-filter: blur(10px) contrast(75%);
-    filter: blur(10px) contrast(75%) grayscale(75%);
+    filter: blur(5px) contrast(75%) grayscale(75%);
 }
 
 p.headercaption {
-    font-size: 35px;
+    font-size: 30px;
     color: white;
     font-weight: 500;
 }
@@ -331,7 +335,7 @@ ul#fs-products {
 }
 
 .featured-wrapper {
-    width: 50%;
+    width: 100%;
     background-color: #ffffff;
     padding: 20px;
 }
@@ -374,4 +378,35 @@ ul#fs-products {
 
 .fs-header {
     margin-top: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    li.le-product {
+        width: calc((100% - 60px) / 4);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    li.le-product {
+        width: calc((100% - 20px) / 2);
+    }
+
+    .featured-wrapper > ul > li {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    li.le-product {
+        width: 100%;
+    }
+
+    div#headertext {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    p.headercaption {
+        font-size: 16px;
+    }
 }
