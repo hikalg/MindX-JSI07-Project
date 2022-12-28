@@ -64,4 +64,9 @@ const products = [
     fs_product_2,
     fs_product_3,
     fs_product_4,
+    fs_product_0,
+    fs_product_1,
+    fs_product_2,
+    fs_product_3,
+    fs_product_4,
 ];
